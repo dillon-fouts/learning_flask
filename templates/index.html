@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add a Book to My Library</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
     <header>
         <h1>Add a Book to My Library</h1>
     </header>
@@ -64,5 +58,4 @@
             {% endfor %}
         </table>
     </main>
-</body>
-</html>
+{% endblock %}
