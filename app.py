@@ -1,24 +1,24 @@
-from flask import Flask
+from flask import Flask, render_template, request, redirect, url_for
 
-app = Flask (__name__)
+app = Flask(__name__)
 
+# Define routes
 @app.route("/")
 def index():
-    return "hello world, index"
+    return render_template("index.html")
 
-@app.route("/tyler")
-def tyler():
-    n1=10
-    n2=20
-    sum = n1 + n2
-    return str(sum)
+@app.route("/add", methods=["POST"])
+def add():
+    # Process form data here
+    # Example: getting data from a form with input fields 'name' and 'email'
+    name = request.form.get("name")
+    email = request.form.get("email")
+    # Process the data as required
+    return redirect(url_for("index"))  # Redirect back to the homepage
 
-@app.route("/dillon")
-def dillon():
-    n1=11
-    n2=20
-    sum = n1 + n2
-    return str(sum)
+@app.route("/about")
+def about():
+    return render_template("about.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
